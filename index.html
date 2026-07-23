@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoVortex - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="sidebar" id="main-nav">
+    <ul>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#customizar">3D Customizar</a></li>
+        <li><a href="#stock">Clothins stock</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#user">User Profile</a></li>
+    </ul>
+</nav> 
+
+<header>
+
+       <div class="header-left">
+        <button id="toggle-sidebar" class="menu-btn">☰</button>
+
+        <div class="logo">
+            <span>Neo</span>Vortex
+        </div>
+   </div>
+
+   <div class="header-right">
+   </div>
+    <input type="text" placeholder="Search..."> 
+    <img src="img/goat.png" alt="GOAT(Messi)" class="profile">
+    
+</header>
+
+<main>
+    <section>
+        <h3>3D Viewer</h3>
+        <img src="img/black-shirt.jpg" alt="Camisa Preta 3D" class="shirt-preview" id="shirt-img">
+    </section>
+
+    <section>
+        <h3>Customization</h3>
+        <div>
+            <p>Select your size: </p>
+
+            <div class="sizes">
+            <input type="radio" id="p" name="size" value="p">
+            <label for="p">P</label>
+
+            <input type="radio" id="m" name="size" value="m">
+            <label for="m">M</label>
+
+            <input type="radio" id="g" name="size" value="g">
+            <label for="g">G</label>
+            </div>
+
+            
+            <p>Select the shirt color: </p>
+            <div class="colors">
+            <input type="radio" id="b" name="color" value="b">
+            <label for="b">Black</label>
+
+            <input type="radio" id="w" name="color" value="w">
+            <label for="w">White</label>
+
+            <input type="radio" id="purple" name="color" value="purple">
+            <label for="purple">Purple</label>
+            </div>
+
+            <button class="btn-buy">Confirm Customization</button>
+            
+        </div>
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

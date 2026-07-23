@@ -1,0 +1,252 @@
+/* ==========================================================================
+   RESET GLOBAL
+   Limpa as configurações padrão do navegador para garantir consistência.
+   ========================================================================== */
+* {
+    margin: 0;              /* Remove o espaçamento externo padrão de todos os elementos */
+    padding: 0;             /* Remove o espaçamento interno padrão de todos os elementos */
+    box-sizing: border-box; /* Faz com que bordas e paddings não aumentem o tamanho total das caixas */
+    font-family: 'Segoe UI', Tahoma, 
+    Geneva, Verdana, sans-serif; /* Define a família de fontes modernas para todo o site */
+}
+
+/* ==========================================================================
+   ESTRUTURA DO CORPO (BODY)
+   Define o esqueleto principal e a malha do layout (Grid).
+   ========================================================================== */
+body {
+    background-color: #0a0a0c;        /* Define a cor de fundo ultra escura do site */
+    color: #e2e8f0;                   /* Define a cor padrão dos textos (branco acinzentado) */
+    min-height: 100vh;                /* Garante que o corpo ocupe pelo menos 100% da altura da tela */
+    display: grid;                    /* Ativa o sistema de layout em malha (Grid) */
+    grid-template-columns: 200px 1fr; /* Divide em 2 colunas: a 1ª com 200px (Sidebar) e a 2ª com o resto (1fr) */
+    grid-template-rows: 1fr;          /* Define uma linha flexível padrão para o Grid */
+}
+
+/* ==========================================================================
+   ESTILOS DE IMAGENS GERAIS
+   ========================================================================== */
+img {
+    max-width: 100%; /* Garante que nenhuma imagem passe da largura máxima do bloco onde está */
+    height: auto;    /* Mantém a proporção da imagem ao mudar de tamanho, sem distorcer */
+}
+
+/* ==========================================================================
+   FOTO DE PERFIL (FOTO DO MESSI)
+   ========================================================================== */
+.profile {
+    width: 45px;               /* Largura fixa da foto de perfil */
+    height: 45px;              /* Altura fixa da foto de perfil */
+    border-radius: 50%;        /* Transforma o quadrado perfeito em um círculo perfeito */
+    object-fit: cover;         /* Garante que a foto preencha o círculo sem ficar esticada ou esmagada */
+    border: 2px solid #7928ca; /* Adiciona a bordinha roxa estilosa ao redor do círculo */
+}
+
+/* ==========================================================================
+   VISUALIZADOR DA CAMISA
+   ========================================================================== */
+.shirt-preview {
+    width: 250px;         /* Altera a largura da imagem da camisa para 250px */
+    height: 250px;        /* Altera a altura da imagem da camisa para 250px */
+    border-radius: 8px;   /* Arredonda levemente os cantos da imagem */
+    border: 1px #222;     /* Define uma borda fina (falta especificar o estilo sólido, mas o valor está mantido) */
+}
+
+/* ==========================================================================
+   BARRA LATERAL (MENU COMPLETO)
+   ========================================================================== */
+.sidebar {
+    background-color: #111115;      /* Cor de fundo cinza escuro sutil da barra lateral */
+    width: 200px;                    /* Largura fixa da sidebar */
+    height: 100vh;                   /* Faz a barra lateral ocupar toda a altura da tela do usuário */
+    padding: 40px 0px;               /* Espaçamento interno (40px topo/baixo, 0px nas laterais) */
+    border-right: 1px solid #1e1e24; /* Cria a linha fina vertical para separar a sidebar do resto do site */
+    grid-row: 1/ 3;                  /* Faz a sidebar se estender verticalmente da linha 1 até a 3 do Grid */
+    padding-top: 40px 24px ;         /* Declaração de padding repetida mantida exatamente como no seu arquivo */
+}
+
+/* Lista interna do menu lateral */
+.sidebar ul {
+    list-style: none;       /* Remove as bolinhas pretas padrão da lista */
+    width: 100%;            /* Faz a lista ocupar toda a largura interna da sidebar */
+    display: flex;          /* Ativa o Flexbox para alinhar os itens */
+    flex-direction: column; /* Alinha os itens da lista em formato de coluna (um embaixo do outro) */
+    gap: 8px;               /* Cria uma distância fixa de 8px entre um link e outro */
+}
+
+/* Os links individuais de navegação */
+.sidebar ul li a {
+    color: #ffffff;             /* Define a cor do texto dos links como branco puro */
+    text-decoration: none;      /* Remove o sublinhado padrão dos links */
+    font-size: 16px;            /* Altera o tamanho da letra para 16px */
+    display: block;             /* Transforma o link em bloco para ocupar a linha toda e aceitar paddings */
+    padding: 12 px 24px;        /* Espaçamento interno do link (mantido o espaço entre o '12' e o 'px') */
+    transition: color 0.2s ease;/* Faz a troca de cor no hover acontecer de forma suave em 0.2 segundos */
+}
+
+/* Efeito ao passar o mouse nos links da sidebar */
+.sidebar ul li a:hover {
+    color: #7928ca;        /* Muda a cor do texto para o roxo da marca ao passar o mouse */
+    text-decoration: none; /* Reafirma que o sublinhado não deve aparecer no hover */
+}
+
+/* ==========================================================================
+   CABEÇALHO DE TOPO (HEADER)
+   ========================================================================== */
+header {
+    display: flex;                  /* Ativa o Flexbox para alinhar a busca e o perfil na mesma linha */
+    justify-content: space-between; /* Empurra a barra de busca para a esquerda e o Messi para a direita */
+    align-items: center;            /* Alinha os elementos verticalmente pelo centro */
+    padding: 20px 40px;             /* Adiciona espaçamento interno nas bordas do cabeçalho */
+    background-color: #111115;      /* Mesma cor de fundo escura da sidebar */
+    border-bottom: 1px solid #1e1e24;/* Cria a linha sutil divisória na parte de baixo do cabeçalho */
+    grid-column: 2;                 /* Posiciona o cabeçalho estritamente na segunda coluna do Grid principal */
+}
+
+/* Caixa de texto da pesquisa */
+header input {
+    background-color: #18181b; /* Cor de fundo escura de dentro da caixa de texto */
+    border: 1px solid;         /* Aplica uma borda fina (cor padrão mantida) */
+    color: #ffffff;            /* Faz com que o texto digitado pelo usuário seja branco */
+    padding: 10px 16px;        /* Espaçamento interno para o texto não ficar colado nas bordas */
+    border-radius: 6px;        /* Arredonda sutilmente os cantos do input */
+    width: 300px;              /* Define uma largura fixa de 300px para a barra */
+    outline: none;             /* Elimina a borda padrão azul/amarela que o navegador põe ao clicar */
+}
+
+/* Efeito quando o usuário clica para digitar na pesquisa */
+header input:focus {
+    border-color: #7928ca; /* A bordinha do input acende em roxo ao receber o clique */
+}
+
+/* ==========================================================================
+   ÁREA PRINCIPAL DE CONTEÚDO (MAIN)
+   ========================================================================== */
+main {
+    grid-column: 2;        /* Posiciona o miolo na coluna 2 (ao lado da barra lateral) */
+    grid-row: 2;           /* Posiciona o miolo na linha 2 (abaixo do cabeçalho) */
+    padding: 40px;         /* Espaçamento interno generoso para as seções não colarem nas bordas */
+    display: flex;         /* Ativa Flexbox para colocar os dois cards lado a lado */
+    gap: 40px;             /* Cria uma distância de 40px de separação entre os dois cards */
+    align-items: stretch;  /* Força ambos os cards a esticarem para ter exatamente a mesma altura */
+}
+
+/* Os Cards Internos (3D Viewer e Customization) */
+main section {
+    background-color: #111115; /* Cor de fundo escura igual aos outros blocos do sistema */
+    border: 1px solid #1e1e24; /* Borda sutil delimitando o espaço do card */
+    border-radius: 12px;       /* Cantos arredondados premium no card */
+    padding: 30px;             /* Espaço interno para respirar todo o conteúdo do card */
+    flex: 1;                   /* Faz as duas seções dividirem o espaço disponível igualmente (50% cada) */
+}
+
+/* Títulos dentro dos cards */
+main section h3 {
+    margin-bottom: 20px; /* Joga um espaço de 20px abaixo do título para não colar nas opções */
+    color: #ffffff;      /* Texto do título em branco puro */
+}
+
+/* Parágrafos de orientação dentro dos cards */
+main section p {
+    margin: 20px 0 10px 0; /* Margens: 20px acima, 0 nas laterais, 10px abaixo do texto */
+    font-size: 14px;       /* Letra ligeiramente menor para textos de instrução secundários */
+    color: #a0aec0;        /* Tom de cinza claro para diferenciar dos títulos */
+}
+
+/* Efeito hover genérico nas labels das seções */
+main section label:hover {
+    color: #7928ca; /* Altera a cor do texto da label para roxo ao passar o mouse */
+}
+
+/* Estado padrão das labels genéricas das seções */
+main section label {
+    margin-right: 20px; /* Cria um espaço de 20px na direita para afastar da próxima label */
+    font-weight: 600;   /* Deixa a fonte em negrito moderado */
+    cursor: pointer;    /* Modifica o ponteiro do mouse para o ícone de "mãozinha" de clique */
+}
+
+/* ==========================================================================
+   BLOCO DE SELEÇÃO DE TAMANHOS (P, M, G)
+   ========================================================================== */
+.sizes {
+    display: flex;       /* Coloca as opções de tamanho lado a lado em linha */
+    gap: 12px;           /* Afasta um botão do outro por 12px */
+    margin-bottom: 20px; /* Cria margem de 20px abaixo do bloco de tamanhos */
+}
+
+/* Esconde as bolinhas de rádio padrão do navegador para os tamanhos */
+.sizes input[type="radio"] {
+    display: none;
+}
+
+/* Transforma as labels de tamanho em botões customizados */
+.sizes label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a1a24;
+    border: 1px solid #2d2d3d;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;
+    transition: all 0.2 ease; /* Suaviza transições (falta o 's' em 0.2, mantido como no original) */
+}
+
+/* Efeito de passar o mouse no botão de tamanho */
+.sizes label:hover {
+    border-color: #7928ca;                        /* A borda fica roxa */
+    box-shadow: 0 0 15px rgba(121, 40, 202, 0.4); /* Aplica o brilho neon roxo ao redor do botão */
+}
+
+/* Estilo do botão de tamanho quando ele é selecionado/clicado */
+.sizes input[type="radio"]:checked + label {
+    background-color: #7928ca;                    /* O fundo fica roxo sólido */
+    border-color: #a855f7;                        /* A borda ganha um roxo mais claro e vivo */
+    color: #ffffff;                               /* Mantém o texto em branco */
+    box-shadow: 0 0 12px rgba(121, 40, 202, 0.4); /* Segura o efeito de brilho neon enquanto ativo */
+}
+
+/* ==========================================================================
+   BLOCO DE SELEÇÃO DE CORES (BLACK, WHITE, PURPLE)
+   ========================================================================== */
+.colors {
+    display: flex;       /* Coloca as opções de cores lado a lado em linha */
+    gap: 12px;           /* Afasta um botão de cor do outro por 12px */
+    margin-bottom: 20px; /* Cria margem abaixo do grupo de cores */
+}
+
+/* Esconde as bolinhas de rádio padrão do navegador para as cores */
+.colors input[type="radio"] {
+    display: none;
+}
+
+/* Transforma as labels de cores nos botões modernos */
+.colors label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a1a24;
+    border: 1px solid #2d2d3d;
+    color: #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 0;
+    /* Transição ultra calibrada especificando propriedades individuais e tempo de 0.3s */
+    transition: background-color 0.3 ease, /* (falta o 's' em 0.3, mantido exatamente como enviado) */
+    border-color 0.3s ease, box-shad 0.3s ease, /* ('box-shad' mantido como enviado) */
+    color 0.3s ease;
+}
+
+/* Efeito de passar o mouse no botão de cor */
+.colors label:hover {
+    border-color: #7928ca;                        /* Borda acende em roxo */
+    box-shadow: 0 0 15px rgba(121, 40, 202, 0.4); /* Expande o brilho roxo cyberpunk */
+}
+
+/* Estilo do botão de cor quando ele está selecionado/clicado */
+.colors input[type="radio"]:checked + label {
+    background-color: #7928ca; /* O fundo trava em roxo sólido para marcar a escolha */
+    border-color: #a855f7;     /* Borda com roxo vibrante */
+    color: #ffffff;            /* Texto branco */
+}
